@@ -83,7 +83,7 @@ const UploadPage: React.FC = () => {
       const formData = new FormData()
       formData.append('file', selectedImage)
 
-      const response = await fetch('http://18.171.107.108/predict', {
+      const response = await fetch('https://classifierbe.fly.dev/predict', {
         method: 'POST',
         body: formData,
       })
@@ -95,6 +95,7 @@ const UploadPage: React.FC = () => {
       }
 
       const data = await response.json()
+      console.log('Response data:', data)
       setResult({
         prediction: data.prediction || 'Unknown',
         confidence: data.confidence || 0,
