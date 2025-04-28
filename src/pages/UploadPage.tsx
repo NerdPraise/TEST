@@ -98,7 +98,7 @@ const UploadPage: React.FC = () => {
       console.log('Response data:', data)
       setResult({
         prediction: data.prediction || 'Unknown',
-        confidence: data.confidence || 0,
+        confidence: data.probabilities[data.prediction] || 0,
       })
     } catch (err) {
       console.error('Error classifying image:', err)
